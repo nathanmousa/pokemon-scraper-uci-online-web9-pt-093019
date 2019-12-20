@@ -21,6 +21,6 @@ class Pokemon
       LIMIT 1
       SQL
     obj = db.execute(sql, id)[0]
-    pokemon = Pokemon.new(:id => obj[0], :name => obj[1], :type => obj[2], :db => db)
+    Pokemon.new(:id => obj[0], :name => obj[1], :type => obj[2], :db => db)
   end
 end

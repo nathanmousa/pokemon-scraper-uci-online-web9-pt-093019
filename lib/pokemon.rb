@@ -18,12 +18,9 @@ class Pokemon
   
   def self.find(id, db)
     sql = <<-SQL
-      SELECT *
-      FROM pokemon
-      WHERE id = ?
-      LIMIT 1
-      SQL
-    object = db.execute(sql, id)
-    pokemon = Pokemon.new(object[0], object[1], object[2], db)
+      SELECT * FROM pokemon WHERE id = ?
+    SQL
+    pokemon_row = db.execute(sql, id)[0]
+    new_pokemon = Pokemon.new(:id => pokemon_row[0], :name => pokemon_row[1], :type => pokemon_row[2], :db => db)
   end
 end

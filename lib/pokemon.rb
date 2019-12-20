@@ -20,7 +20,7 @@ class Pokemon
       WHERE id = ?
       LIMIT 1
       SQL
-    data = db.execute(sql, id)[0]
-    pokemon = Pokemon.new(data[0], data[1], data[2], db)
+    obj = db.execute(sql, id)[0]
+    pokemon = Pokemon.new(:id => obj[0], :name => obj[1], :type => obj[2], :db => db)
   end
 end

@@ -23,7 +23,7 @@ class Pokemon
       WHERE id = ?
       LIMIT 1
       SQL
-    obj = db.execute(sql, id)
+    object = db.execute(sql, id)
     pokemon = Pokemon.new(obj[0], obj[1], obj[2], db)
   end
 end
